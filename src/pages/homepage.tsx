@@ -12,7 +12,7 @@ export default () => {
         {test.map((item, index) => {
           return (
             <li key={index}>
-            {item.data.title}
+            Page name: {item.data.pageName}
             </li>
           );
         })}

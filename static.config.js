@@ -32,6 +32,7 @@ function getPosts() {
               // Remove unused key //
               delete dataObj.orig;
               // Push object into items array //
+              dataObj.data['pageName'] = item.path.replace(/^.*[\\\/]/, '').split('.')[0];
               items.push(dataObj);
             }
           })
