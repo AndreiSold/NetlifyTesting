@@ -12,7 +12,7 @@ export default () => {
         {test.map((item, index) => {
           return (
             <li key={index}>
-            {item.data}
+            {item.data.title}
             </li>
           );
         })}
