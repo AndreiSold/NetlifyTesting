@@ -76,12 +76,14 @@ export default {
       },
       {
         path: "/en/homepage",
+        template: "src/pages/homepage",
         getData: () => {
           return ({ cmsObject: cmsPages.find(page => page.data.pageName === cmsPageNames.homepageEn) });
         }
       },
       {
         path: "/de/homepage",
+        template: "src/pages/homepage",
         getData: () => {
           return ({ cmsObject: cmsPages.find(page => page.data.pageName === cmsPageNames.homepageDe) });
         }
