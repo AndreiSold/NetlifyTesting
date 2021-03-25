@@ -75,13 +75,13 @@ export default {
         })),
       },
       {
-        path: "/homepage/en",
+        path: "/en/homepage",
         getData: () => {
           return ({ cmsObject: cmsPages.find(page => page.data.pageName === cmsPageNames.homepageEn) });
         }
       },
       {
-        path: "/homepage/de",
+        path: "/de/homepage",
         getData: () => {
           return ({ cmsObject: cmsPages.find(page => page.data.pageName === cmsPageNames.homepageDe) });
         }
