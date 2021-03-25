@@ -1,9 +1,3 @@
-// import {
-//   connectRouter,
-//   routerMiddleware,
-//   RouterState,
-// } from 'connected-react-router';
-// import { createBrowserHistory, History } from 'history';
 import {
   applyMiddleware,
   combineReducers,
@@ -19,7 +13,6 @@ export interface AppState {
 }
 
 export const publicUrl = process.env.PUBLIC_URL || '';
-// export const history = createBrowserHistory({ basename: publicUrl });
 
 const createRootReducer = () =>
   combineReducers<AppState>({
@@ -27,8 +20,7 @@ const createRootReducer = () =>
   });
 
 const configureStore = (initialState?: AppState): Store<AppState, any> => {
-  const composeEnhancer: typeof compose =
-    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const composeEnhancer: typeof compose = compose;
 
   const store = createStore(
     createRootReducer(),

@@ -9,8 +9,8 @@ export default () => {
   return (
     <Box mb={17.5}>
       <section id="values-section" data-testid="values-section">
-        <ValuesSection obj={cmsObject}/>
-      </section>      
+        {cmsObject && <ValuesSection obj={cmsObject} />}
+      </section>
     </Box>
   );
 };
