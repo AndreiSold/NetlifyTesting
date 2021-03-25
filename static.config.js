@@ -82,6 +82,17 @@ export default {
       }
     ]
   },
+
+  beforeRenderToHtml: (App, { meta }) => {
+    meta.muiSheets = new ServerStyleSheets()
+    return meta.muiSheets.collect(App)
+  },
+
+  headElements: (elements, { meta }) => [
+    ...elements,
+    meta.muiSheets.getStyleElement(),
+  ],
+
   plugins: [
     'react-static-plugin-typescript',
     [
