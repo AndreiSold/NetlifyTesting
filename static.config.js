@@ -6,7 +6,8 @@ import matter from "gray-matter";
 
 const cmsPageNames = {
   about: "About",
-  homepage: "Homepage"
+  homepageEn: "HomepageEn",
+  homepageDe: "HomepageDe"
 }
 
 function getParsedCmsPages() {
@@ -74,9 +75,15 @@ export default {
         })),
       },
       {
-        path: "/homepage",
+        path: "/homepage/en",
         getData: () => {
-          return ({ cmsObject: cmsPages.find(page => page.data.pageName === cmsPageNames.homepage) });
+          return ({ cmsObject: cmsPages.find(page => page.data.pageName === cmsPageNames.homepageEn) });
+        }
+      },
+      {
+        path: "/homepage/de",
+        getData: () => {
+          return ({ cmsObject: cmsPages.find(page => page.data.pageName === cmsPageNames.homepageDe) });
         }
       },
       {

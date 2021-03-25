@@ -9,11 +9,19 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/cms-pages/Homepage.md"
-        label: "Homepage"
-        name: "homepage"
+      - file: "src/cms-pages/HomepageEn.md"
+        label: "HomepageEn"
+        name: "homepageEn"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "homepage-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "homepageEn-page"}
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: string}
+          - {label: Image, name: image, widget: image}
+      - file: "src/cms-pages/HomepageDe.md"
+        label: "HomepageDe"
+        name: "homepageDe"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "homepageDe-page"}
           - {label: Title, name: title, widget: string}
           - {label: Description, name: description, widget: string}
           - {label: Image, name: image, widget: image}
