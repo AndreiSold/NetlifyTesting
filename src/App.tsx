@@ -20,7 +20,8 @@ function App() {
             <Link to="/about">About</Link>
             <Link to="/blog">Blog</Link>
             <Link to="/dynamic">Dynamic</Link>
-            <Link to="/homepage">Homepage</Link>
+            <Link to="/homepage/en">Homepage</Link>
+            <Link to="/homepage/de">Haumpeigi</Link>
           </nav>
           <div className="content">
             <Suspense fallback={<em>Loading...</em>}>
