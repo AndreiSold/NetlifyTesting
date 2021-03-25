@@ -5,14 +5,11 @@ import "./app.css";
 import { Link, Route, Switch } from "react-router-dom";
 import { Button, CssBaseline, ThemeProvider } from "@material-ui/core";
 import { theme } from "./AppTheme";
-// import { createBrowserHistory } from "history";
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(["dynamic"]);
 
 function App() {
-  // const history = createBrowserHistory({ basename: "/" });
-
   return (
     <Root>
       <ThemeProvider theme={theme}>

@@ -1,20 +1,19 @@
 import axios from 'axios'
 import path from 'path'
-// import { Post } from './types'
-
-// Typescript support in static.config.js is not yet supported, but is coming in a future update!
-
 import fs from "fs";
 import klaw from "klaw";
 import matter from "gray-matter";
 
-function getPosts() {
+const cmsPageNames = {
+  about: "About",
+  homepage: "Homepage"
+}
+
+function getParsedCmsPages() {
   const items = [];
   // Walk ("klaw") through posts directory and push file paths into items array //
   const getFiles = () =>
     new Promise(resolve => {
-      // Check if test-collect directory exists //
-      // This is the folder where your CMS collection we made earlier will store it's content. Creating a post inside this collection will add a "test-collection" directory to your repo for you.
       if (fs.existsSync("./src/cms-pages")) {
         klaw("./src/cms-pages")
           .on("data", item => {
@@ -55,7 +54,7 @@ function getPosts() {
 export default {
   entry: path.join(__dirname, 'src', 'index.tsx'),
   getRoutes: async () => {
-    const test = await getPosts();
+    const cmsPages = await getParsedCmsPages();
 
     const { data: posts } /* :{ data: Post[] } */ = await axios.get(
       'https://jsonplaceholder.typicode.com/posts'
@@ -76,9 +75,15 @@ export default {
       },
       {
         path: "/homepage",
-        getData: () => ({
-          test
-        })
+        getData: () => {
+          return ({ cmsObject: cmsPages.find(page => page.data.pageName === cmsPageNames.homepage) });
+        }
+      },
+      {
+        path: "/about",
+        getData: () => {
+          return ({ cmsObject: cmsPages.find(page => page.data.pageName === cmsPageNames.about) });
+        }
       }
     ]
   },
