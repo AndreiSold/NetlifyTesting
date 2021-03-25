@@ -7,11 +7,16 @@ import { Button, CssBaseline, ThemeProvider } from "@material-ui/core";
 import { theme } from "./AppTheme";
 import { Provider } from "react-redux";
 import { store } from "./store";
+let i18next: any;
 
+if (typeof window !== undefined) {
+  i18next  = require('react-i18next');
+}
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(["dynamic"]);
 
 function App() {
+
   return (
     <Root>
       <Provider store={store}>
@@ -19,7 +24,7 @@ function App() {
           <CssBaseline>
             <nav>
               <Button>dada</Button>
-              <Link to="/">Home</Link>
+              <Link to="/">{!!i18next ? 'asdf' : i18next.useTranslation().t('dashboard')}</Link>
               <Link to="/about">About</Link>
               <Link to="/blog">Blog</Link>
               <Link to="/dynamic">Dynamic</Link>
