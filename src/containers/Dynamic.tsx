@@ -1,9 +1,13 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
-const Dynamic: React.FC<{ path?: String }> = () => (
+const Dynamic: React.FC<{ path?: String }> = () => {
+  const { t } = useTranslation();
+
+  return (
   <div>
-    This is a dynamic page! It will not be statically exported, but is available
-    at runtime
-  </div>
-)
+    Working dynamic internationalization: {t('createCompanyAccountForMore')}
+  </div>)
+}
+
 export default Dynamic
